@@ -30,7 +30,6 @@ class AudioRenderer:
         self.text_to_audio_converter(text_to_render=PROMPT_TEXTS['language_not_found'],
                                      save_path=f"{VOCALS_PATH}/vocal_prompt_language_not_found.mp3")
         print(PROMPT_TEXTS['language_not_found'])
-        print()
         translate_to = self.voice_analyzer.destination_language()
         return translate_to
 

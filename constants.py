@@ -112,8 +112,8 @@ REPEAT_TXT = "please, say again....."
 REQUESTED_TRANSLATION_TXT = 'You said: '
 WHICH_LANGUAGE_TXT = 'Give me the language in which you want to convert: ' \
                      'for example: Hindi , English or any other'
-LANGUAGE_NOT_FOUND_TXT = "Language in which you are trying to convert is currently not available, " \
-                         "please input some other language"
+LANGUAGE_NOT_FOUND_TXT = "I cannot find the language in which you are trying to convert, " \
+                         "please say again or give another language"
 
 PROMPT_TEXTS = {
     'listening': LISTENING_TXT,
