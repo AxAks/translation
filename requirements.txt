@@ -1,0 +1,8 @@
+playsound
+SpeechRecognition
+googletrans
+gTTs
+gTTs-token
+pycairo
+pygobject
+PyAudio
