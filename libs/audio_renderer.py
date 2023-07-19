@@ -30,14 +30,17 @@ class AudioRenderer:
         self.text_to_audio_converter(text_to_render=PROMPT_TEXTS['language_not_found'],
                                      save_path=f"{VOCALS_PATH}/vocal_prompt_language_not_found.mp3")
         print(PROMPT_TEXTS['language_not_found'])
-        translate_to = self.voice_analyzer.set_destination_language()
+        translate_to = self.voice_analyzer.take_command(prompt_text=PROMPT_TEXTS['repeat'],
+                                                        action='set_language')
         return translate_to
 
     def give_result(self, translation_request, translate_to):
         translator = Translator()
-        text_to_translate = self.render_translation_request(translation_request)
+        spoken_text_to_translate = self.render_translation_request(translation_request)
+        text_to_translate = translator.translate(spoken_text_to_translate, dest=translate_to)
         translation = text_to_translate.text
         save_path = f"{VOCALS_PATH}/captured_voice.mp3"
-        self.text_to_audio_converter(text_to_render=translation, save_path=save_path)
+        self.text_to_audio_converter(text_to_render=f"{spoken_text_to_translate} translates to "
+                                                    f"{translation}", save_path=save_path)
         os.remove(save_path)
-        print(translation)
+        print(f"{translation_request} = {translation}")

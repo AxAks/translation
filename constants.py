@@ -106,20 +106,21 @@ LANGUAGES = {'afrikaans': 'af',
              'zulu': 'zu'
              }
 
-LISTENING_TXT = "Please give me something to translate..."
+LISTENING_TXT = "Please give me something to translate:"
+READY_TXT = "Speak Now, i am listening !"
 RECOGNIZING_TXT = "I am analyzing your sentence ....."
-REPEAT_TXT = "please, say again....."
-REQUESTED_TRANSLATION_TXT = 'You said: '
-WHICH_LANGUAGE_TXT = 'Give me the language in which you want to convert: ' \
-                     'for example: French , Spanish, German or any other'
+REPEAT_TXT = "please, say again:"
+GIVEN_INPUT_TXT = 'You said: '
+WHICH_LANGUAGE_TXT = 'Give me the language in which you want to convert:'
 LANGUAGE_NOT_FOUND_TXT = "I cannot find the language in which you are trying to convert, " \
-                         "please say again or give another language"
+                         "please say again or give another language:"
 
 PROMPT_TEXTS = {
+    'ready': READY_TXT,
     'listening': LISTENING_TXT,
     'recognizing': RECOGNIZING_TXT,
     'repeat': REPEAT_TXT,
-    'requested_translation': REQUESTED_TRANSLATION_TXT,
+    'given_input': GIVEN_INPUT_TXT,
     'which_language': WHICH_LANGUAGE_TXT,
     'language_not_found': LANGUAGE_NOT_FOUND_TXT
 }
