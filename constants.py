@@ -107,11 +107,11 @@ LANGUAGES = {'afrikaans': 'af',
              }
 
 LISTENING_TXT = "Please give me something to translate..."
-RECOGNIZING_TXT = "I am trying to understand ....."
+RECOGNIZING_TXT = "I am analyzing your sentence ....."
 REPEAT_TXT = "please, say again....."
 REQUESTED_TRANSLATION_TXT = 'You said: '
 WHICH_LANGUAGE_TXT = 'Give me the language in which you want to convert: ' \
-                     'for example: Hindi , English or any other'
+                     'for example: French , Spanish, German or any other'
 LANGUAGE_NOT_FOUND_TXT = "I cannot find the language in which you are trying to convert, " \
                          "please say again or give another language"
 
