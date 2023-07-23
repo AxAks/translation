@@ -106,23 +106,45 @@ LANGUAGES = {'afrikaans': 'af',
              'zulu': 'zu'
              }
 
-LISTENING_TXT = "Please give me something to translate:"
+INPUT_TIME_LIMIT = 20
+
+#  orders
+ASK_SOURCE_LANGUAGE = 'ask_source_language'
+SET_SOURCE_LANGUAGE = 'set_source_language'
+ASK_TRANSLATION_REQUEST = 'ask_submit_phrase'
+SET_TRANSLATION_REQUEST = 'set_submit_phrase'
+ASK_TRANSLATE_TO = 'ask_target_language'
+SET_TRANSLATE_TO = 'set_target_language'
+
+#  text prompts
+ASK_TRANSLATION_REQUEST_TXT = "Please give me something to translate:"
 READY_TXT = "Speak Now, i am listening !"
-RECOGNIZING_TXT = "I am analyzing your sentence ....."
+RECOGNIZING_TXT = "please wait ....."
 REPEAT_TXT = "please, say again:"
 GIVEN_INPUT_TXT = 'You said: '
-WHICH_LANGUAGE_TXT = 'Give me the language in which you want to convert:'
+ASK_SOURCE_LANGUAGE_TXT = 'Give me the language from which you want to convert:'
+ASK_TRANSLATE_TO_TXT = 'Give me the language in which you want to convert:'
 LANGUAGE_NOT_FOUND_TXT = "I cannot find the language in which you are trying to convert, " \
                          "please say again or give another language:"
 
+# orders/actions mapping
+ORDER_ACTION_DICT = {
+    ASK_SOURCE_LANGUAGE: SET_SOURCE_LANGUAGE,
+    ASK_TRANSLATION_REQUEST: SET_TRANSLATION_REQUEST,
+    ASK_TRANSLATE_TO: SET_TRANSLATE_TO,
+}
+
+
 PROMPT_TEXTS = {
     'ready': READY_TXT,
-    'listening': LISTENING_TXT,
+    ASK_TRANSLATION_REQUEST: ASK_TRANSLATION_REQUEST_TXT,
     'recognizing': RECOGNIZING_TXT,
     'repeat': REPEAT_TXT,
     'given_input': GIVEN_INPUT_TXT,
-    'which_language': WHICH_LANGUAGE_TXT,
+    ASK_SOURCE_LANGUAGE: ASK_SOURCE_LANGUAGE_TXT,
+    ASK_TRANSLATE_TO: ASK_TRANSLATE_TO_TXT,
     'language_not_found': LANGUAGE_NOT_FOUND_TXT
 }
 
 VOCALS_PATH = 'vocals'
+
