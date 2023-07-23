@@ -42,7 +42,6 @@ class AudioRenderer:
         text_to_translate = translator.translate(spoken_text_to_translate, dest=translate_to)
         translation = text_to_translate.text
         save_path = f"{VOCALS_PATH}/captured_voice.mp3"
-        self.text_to_audio_converter(text_to_render=f"{spoken_text_to_translate}: "
-                                                    f"{translation}", lang=translate_to, save_path=save_path)
+        self.text_to_audio_converter(text_to_render=f"{translation}", lang=translate_to, save_path=save_path)
         os.remove(save_path)
         print(f"{translation_request} = {translation}")

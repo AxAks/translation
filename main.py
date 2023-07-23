@@ -15,22 +15,32 @@ def main():
     for order, action in ORDER_ACTION_DICT.items():
         _input = voice_analyzer.take_command(prompt_text=PROMPT_TEXTS[order], action=action)
         if action == SET_SOURCE_LANGUAGE:
-            source_language = LANGUAGES.GET(_input.lower())
+            try:
+                source_language = LANGUAGES[_input.lower()]
+            except KeyError:
+                _input = voice_analyzer.take_command(prompt_text=PROMPT_TEXTS[order], action=action)
         elif action == SET_TRANSLATION_REQUEST:
-            translation_request = _input
+            try:
+                translation_request = _input
+            except KeyError:
+                _input = voice_analyzer.take_command(prompt_text=PROMPT_TEXTS[order], action=action)
         elif action == SET_TRANSLATE_TO:
-            translate_to = LANGUAGES.GET(_input.lower())
+            try:
+                translate_to = LANGUAGES[_input.lower()]
+            except KeyError:
+                _input = voice_analyzer.take_command(prompt_text=PROMPT_TEXTS[order], action=action)
         else:
             raise Exception
 
         while not _input:
+            _input = ''
             _input = voice_analyzer.take_command(prompt_text=PROMPT_TEXTS['repeat'], action=action)
             if action == SET_SOURCE_LANGUAGE:
-                source_language = LANGUAGES.GET(_input.lower())
+                source_language = LANGUAGES[_input.lower()]
             elif action == SET_TRANSLATION_REQUEST:
                 translation_request = _input
             elif action == SET_TRANSLATE_TO:
-                translate_to = LANGUAGES.GET(_input.lower())
+                translate_to = LANGUAGES[_input.lower()]
             else:
                 raise Exception
     audio_renderer.give_result(source_language=source_language,

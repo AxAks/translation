@@ -19,10 +19,18 @@ class VoiceAnalyzer:
         self.microphone = sr.Microphone()
 
     def take_command(self, prompt_text, action, source_language='en-US'):
+        """
+        entry point for vocal commands
+        """
         translation_processor = tp.TranslationProcessor()
         audio_renderer = ar.AudioRenderer()
         save_path = ''
-        save_path = self.check_matching_vocal(action, save_path)
+        if action == SET_SOURCE_LANGUAGE:
+            save_path = f"{VOCALS_PATH}/vocal_prompt_which_source_language.mp3"
+        elif action == SET_TRANSLATION_REQUEST:
+            save_path = f"{VOCALS_PATH}/vocal_prompt_listening.mp3"
+        elif action == SET_TRANSLATE_TO:
+            save_path = f"{VOCALS_PATH}/vocal_prompt_which_target_language.mp3"
 
         audio_renderer.text_to_audio_converter(text_to_render=prompt_text, save_path=save_path)
         print(PROMPT_TEXTS['ready'])
@@ -37,16 +45,8 @@ class VoiceAnalyzer:
             audio_renderer.render_translation_request(spoken_input, source_language=source_language)
             return _input
 
-        except Exception:
+        except Exception as e:
+            print(e.__str__())
             return None
 
-    @staticmethod
-    def check_matching_vocal(action, save_path):
-        if action == SET_SOURCE_LANGUAGE:
-            save_path = f"{VOCALS_PATH}/vocal_prompt_which_source_language.mp3"
-        elif action == SET_TRANSLATION_REQUEST:
-            save_path = f"{VOCALS_PATH}/vocal_prompt_listening.mp3"
-        elif action == SET_TRANSLATE_TO:
-            save_path = f"{VOCALS_PATH}/vocal_prompt_which_target_language.mp3"
-        return save_path
 
